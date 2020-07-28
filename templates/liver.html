@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Liver Disease Prediction usecase</title>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav">
+          <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+          <a class="nav-item nav-link" href="{% url 'diabindex' %}">Diabetes</a>
+          <a class="nav-item nav-link" href="{% url 'liverindex' %}">Liver</a>
+          <a class="nav-item nav-link" href="{% url 'callindex' %}">CallPrediction</a>
+        </div>
+    </nav>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+<div class="content">
+    <h1 style="text-align: center"; >Predict chances for Liver Disease</h1>
+    <h2 style="text-align: center;font-size:24;width:500px;height:30px;background-color:#ffcc00;">{{a}}</h2>
+    <h3 style="color:navy;">Age at diagnosis &emsp;&emsp; Albumin(mg/dL) &emsp;&nbsp;&nbsp;  Alkaline Phosphatas &nbsp; Alpha Fetoprotein &nbsp;&nbsp;&nbsp; Aspartat Transamins  Creatinine_(mg/dL)</h3> 
+    
+    
+    <div class="form">
+        <form action="/lpredict" method="POST">
+          {% csrf_token %}
+            <input type="text" name="ageVal" id="age" value={{temp.ageVal}}>
+            <input type="text" name="AlbVal" id="AlbVal" value={{temp.AlbVal}}>
+            <input type="text" name="AlkalineVal" id="AlkalineVal" value={{temp.AlkalineVal}}>
+            <input type="text" name="AlphaVal" id="AlphaVal" value={{temp.AlphaVal}}>
+            <input type="text" name="AspartateVal" id="AspartateVal" value={{temp.AspartateVal}}>
+            <input type="text" name="CreatinineVal" id="CreatinineVal" value={{temp.CreatinineVal}}>
+            <h3 style="color:navy;">Direct Bilirubin &emsp;&emsp; Ferritin &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;  Gammaglutamyl trf &nbsp; Haemoglobin(g/dL) &nbsp; International NRatio &nbsp; Iron(mcg/dL)</h3> 
+            <input type="text" name="BilirubinVal" id="BilirubinVal" value={{temp.BilirubinVal}}>
+            <input type="text" name="FerritinVal" id="FerritinVal" value={{temp.FerritinVal}}>
+            <input type="text" name="GammaVal" id="GammaVal" value={{temp.GammaVal}}>
+            <input type="text" name="HaemoglobinVal" id="HaemoglobinVal" value={{temp.HaemoglobinVal}}>
+            <input type="text" name="INRatioVal" id="INRatioVal" value={{temp.INRatioVal}}>
+            <input type="text" name="IronVal" id="IronVal" value={{temp.IronVal}}>
+            <h3 style="color:navy;">Nodule Dimension &emsp;&nbsp; No. of Nodules &emsp;&emsp;&nbsp;  Ascites Degree &emsp;&emsp;&nbsp;&nbsp; Encefalopathy Deg &nbsp;&nbsp;&nbsp; Performance_Status</h3> 
+            <input type="text" name="dimensionVal" id="dimensionVal" value={{temp.dimensionVal}}>
+            <input type="text" name="NodulesVal" id="NodulesVal" value={{temp.NodulesVal}}>
+            <input type="text" name="AscitesVal" id="AscitesVal" value={{temp.AscitesVal}}>
+            <input type="text" name="EncefalopathyVal" id="EncefalopathyVal" value={{temp.EncefalopathyVal}}>
+            <input type="text" name="Performance_StatusVal" id="Performance_StatusVal" value={{temp.Performance_StatusVal}}>
+            <h4 style="color:navy;">Chronic Renal Insufficiency</h4> 
+            <select name="Chronic_RenalVal" id="Chronic_RenalVal">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <h4 style="color:navy;">Diabetes</h4> 
+            <select name="DiabetesVal" id="DiabetesVal">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <h4 style="color:navy;">Hepatitis B</h4> 
+            <select name="Hepatitis_BVal" id="Hepatitis_BVal">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <h4 style="color:navy;">Liver Metastasis</h4> 
+            <select name="Liver_MetastasisVal" id="Liver_MetastasisVal">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <h4 style="color:navy;">Portal Vein</h4> 
+            <select name="Portal_VeinVal" id="Portal_VeinVal">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <h4 style="color:navy;">Symptoms</h4> 
+            <select name="SymptomsVal" id="SymptomsVal">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="            Predict           ">
+        </form>
+    </div>
+</div>
+
+<br>
+<!-- commented -->
+<!--<h2 style="text-align: center"> {{a}} </h2>  -->
+
+</body>
+<html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav">
+          <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+          <a class="nav-item nav-link" href="{% url 'diabindex' %}">Diabetes</a>
+          <a class="nav-item nav-link" href="{% url 'liverindex' %}">Liver</a>
+          <a class="nav-item nav-link" href="{% url 'callindex' %}">CallPrediction</a>
+        </div>
+    </nav>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  
+    <div class="content">
+        <h1 style="text-align: center"; >Predict Your chances for Diabetes</h1>
+        <h2 style="text-align: center;font-size:24;width:500px;height:30px;background-color:#ffcc00;">{{a}}</h2>
+        <h4 style="color:navy;">Age &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp; Bs_Fast &emsp;&emsp;&emsp;&emsp;&nbsp;  BS_PP &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp; Plasma_R &emsp;&emsp;&emsp; Plasma_F</h3> 
+        
+        
+        <div class="form">
+            <form action="/dpredict" method="POST">
+              {% csrf_token %}
+                <input type="text" name="ageVal" id="age" value={{temp.ageVal}}>
+                <input type="text" name="bs_fastVal" id="bs_fast" value={{temp.bs_fastVal}}>
+                <input type="text" name="bs_ppVal" id="bs_pp" value={{temp.bs_ppVal}}>
+                <input type="text" name="plasma_rVal" id="plasma_r" value={{temp.plasma_rVal}}>
+                <input type="text" name="plasma_fVal" id="plasma_f" value={{temp.plasma_fVal}}>
+                <h4 style="color:navy;">HBA1C</h3> 
+                <input type="text" name="hbA1cVal" id="hbA1c" value={{temp.hbA1cVal}}>
+                <input type="submit" value="Predict">
+            </form>
+        </div>
+    </div>
+    
+<br>
+
+
+</body>
+<html>

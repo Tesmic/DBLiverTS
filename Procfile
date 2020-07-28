@@ -1,0 +1,1 @@
+web: gunicorn DBLWebApp.wsgi --log-file -
