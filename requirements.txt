@@ -24,7 +24,7 @@ sklearn-pandas==1.8.0
 sqlparse==0.3.1
 statsmodels==0.11.1
 threadpoolctl==2.1.0
-urllib3==1.25.9
+urllib3==1.26.5
 whitenoise==5.1.0
 wincertstore==0.2
 psycopg2==2.7.2
